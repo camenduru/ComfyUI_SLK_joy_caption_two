@@ -38,7 +38,8 @@ class JoyClipVisionModel:
 
         # clip
         model_id = "google/siglip-so400m-patch14-384"
-        CLIP_PATH = download_hg_model(model_id, "clip")
+        # CLIP_PATH = download_hg_model(model_id, "clip")
+        CLIP_PATH = "/content/ComfyUI/models/clip/siglip-so400m-patch14-384"
 
         clip_model = AutoModel.from_pretrained(
             CLIP_PATH,
@@ -164,7 +165,8 @@ class JoyLLM:
     def load_llm_model(self):
         if self.text_model is None or self.current_model_id != self.model_id:
             print(f"Loading LLM: {self.model_id}")
-            LLM_PATH = download_hg_model(self.model_id, "LLM")
+            # LLM_PATH = download_hg_model(self.model_id, "LLM")
+            LLM_PATH = "/content/ComfyUI/models/LLM/Orenguteng--Llama-3.1-8B-Lexi-Uncensored-V2"
             text_model_path = os.path.join(BASE_MODEL_PATH, "text_model")
             modify_json_value(os.path.join(text_model_path, "adapter_config.json"), "base_model_name_or_path",
                               LLM_PATH)
